@@ -30,13 +30,9 @@ Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
 The setup of Ho et al. (2020) weights the reconstruction loss by the signal-to-noise ratio, implicitly giving a weight of zero to data with zero SNR. The loss function with SNR weights is defined as follows:
 
-$$
-L_{MSE+SNR} = L_{MSE}(\text{model_output}, \text{clean_images}) \cdot w_{SNR}
-$$
+$L_{MSE+SNR} = L_{MSE}(\text{model_output}, \text{clean_images}) \cdot w_{SNR}$
 
-$$
-L_{MSE+SNR} = \frac{\alpha_t}{1 - \alpha_t} \times \sum_{i=1}^{N} (\text{model_output}_i - \text{clean_images}_i)^2
-$$
+$L_{MSE+SNR} = \frac{\alpha_t}{1 - \alpha_t} \times \sum_{i=1}^{N} (\text{model_output}_i - \text{clean_images}_i)^2$
 
 Rather than predicting noise, the model predicts images with SNR weights. This leads to far better SNR and faster convergence.
 

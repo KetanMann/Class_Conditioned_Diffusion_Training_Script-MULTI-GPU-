@@ -61,13 +61,12 @@ resume_from_checkpoint="latest" \          # If you want to resume from a given 
 prediction_type="sample" \                 # Default : "epsilon" : Noise Prediction in case DDPM with without SNR.
                                            # SNR weights and SNR loss function used in case of Sample Prediction.(very very crucial).
 ```
-For detailed info, references and default values see *CodeExplanationNB.ipynb* file attached.
+
 
 Some other parameters that were set to default are- _model_config_name_or_path, random_flip, adam_beta1, adam_beta2, adam_weight_decay, lr_scheduler, lr_warmup_steps, enable_xformers_memory_efficient_attention, logger, save_model_epochs, mixed_precision, eval_batch_size, num_epochs, use_ema, ddpm_num_steps_. 
 
 # How to run training script
-
-This training script is orginally taken from Hugging Face official diffusion training script with some minor changes. Firstly there are some requirements:-
+Firstly there are some requirements:-
 
 ## Requirements
 ``` bash

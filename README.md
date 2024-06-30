@@ -1,9 +1,10 @@
-# DDPM with SNR weights for Class conditioned Image gneration .
+# DDPM with SNR weights for Class conditioned Image generation(with Multi-GPU Support).
+
 Diffusion Model are inspired by Non-equillibrium Thermodynamics. The diffusion model defines a Markov chain of slowing adding Gaussian noise/noise corruption to get an isotropic noise and then learning how to reverse this process to generate new samples. 
 DDPM trains a sequence of  models to reverse each step of the noise corruption, using knowledge of the function form of the reverse distributions to make training tractable. There are 3 major components of diffusion models- Corruption Process, UNet to learn reverse process and a Sampler for generating new images. 
 
 
-# Class Conditioned DDPM with custom Pipeline for Image Generation.
+# Class Conditioned DDPM with custom Pipeline for Image Generation. (using HuggingFace Diffusers)
 
 Model is based on Hugging face unconditional training script. But as the name suggest it didn't have class conditioning support. I modified the script to add class conditioning support. Currently label names are taken as directory names containing respective class label's images. You can easily modify the script. Also make sure to change the num_classes to number of labels. You modify the class embedding type see Unet2DModel from diffusers. 
 The custom pipeline is used to save images while training and finally it can be used to generate specific label images. See section "Writing Custom Pipeline for conditional image generation"

@@ -124,6 +124,9 @@ ship - index8
 
 truck - index9
 
+## For Citation
+
+[![DOI](https://zenodo.org/badge/822242135.svg)](https://zenodo.org/doi/10.5281/zenodo.12600813)
 
 
 

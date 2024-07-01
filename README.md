@@ -17,12 +17,13 @@ Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
 | **Algorithm 1** Training | **Algorithm 2** Sampling |
 |--------------------------|--------------------------|
-| 1: **repeat**            | 1: $x_T \sim \mathcal{N}(0,I)$ |
-| 2: $x_0 \sim q_\phi(x_0)$ | 2: **for** $t = T, \ldots, 1$ **do** |
-| 3: $t \sim \text{Uniform}(\{1, \ldots, T\})$ | 3: $z \sim \mathcal{N}(0,I)$ if $t > 1$, else $z = 0$ |
-| 4: $\varepsilon \sim \mathcal{N}(0,I)$ | 4: $x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left(x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_0, t) \right) + \sigma_tz$ |
-| 5: Take gradient descent step on $\nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2$ | 5: **end for** |
-| 6: **until** converged | 6: **return** $x_0$ |
+| 1: **repeat**            | 1: ![eq1](https://latex.codecogs.com/svg.latex?x_T%20\sim%20\mathcal{N}(0,I)) |
+| 2: ![eq2](https://latex.codecogs.com/svg.latex?x_0%20\sim%20q_\phi(x_0)) | 2: **for** ![eq3](https://latex.codecogs.com/svg.latex?t%20=%20T,%20\ldots,%201) **do** |
+| 3: ![eq4](https://latex.codecogs.com/svg.latex?t%20\sim%20\text{Uniform}(\{1,%20\ldots,%20T\})) | 3: ![eq5](https://latex.codecogs.com/svg.latex?z%20\sim%20\mathcal{N}(0,I)) if ![eq6](https://latex.codecogs.com/svg.latex?t%20>%201), else ![eq7](https://latex.codecogs.com/svg.latex?z%20=%200) |
+| 4: ![eq8](https://latex.codecogs.com/svg.latex?\varepsilon%20\sim%20\mathcal{N}(0,I)) | 4: ![eq9](https://latex.codecogs.com/svg.latex?x_{t-1}%20=%20\frac{1}{\sqrt{\alpha_t}}%20\left(x_t%20-%20\frac{1-%20\alpha_{t}}{\sqrt{1-\bar{\alpha}_t}}%20\epsilon_{\theta}(x_t,%20t)%20\right)%20+%20\sigma_t%20z) |
+| 5: Take gradient descent step on ![eq10](https://latex.codecogs.com/svg.latex?\nabla_{\theta}%20\|%20\epsilon%20-\epsilon_{\theta}(\sqrt{\bar{\alpha}_t}%20x_{0}%20+%20\sqrt{1-\bar{\alpha}_t}%20\epsilon%20,%20t)%20\|^2) | 5: **end for** |
+| 6: **until** converged | 6: **return** ![eq11](https://latex.codecogs.com/svg.latex?x_0) |
+
 
 **Table**: DDPM Algorithm : Ho et al. (2020)
 

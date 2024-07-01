@@ -15,36 +15,14 @@ The custom pipeline is used to save images while training and finally it can be 
 
 Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
-<table>
-  <tr>
-    <th>Algorithm 1 Training</th>
-    <th>Algorithm 2 Sampling</th>
-  </tr>
-  <tr>
-    <td>1: <strong>repeat</strong></td>
-    <td>1: <span style="color: #6a737d;">\( x_T \sim \mathcal{N}(0,I) \)</span></td>
-  </tr>
-  <tr>
-    <td>2: <span style="color: #6a737d;">\( x_0 \sim q_\phi(x_0) \)</span></td>
-    <td>2: <strong>for</strong> <span style="color: #6a737d;">\( t = T, \ldots, 1 \)</span> <strong>do</strong></td>
-  </tr>
-  <tr>
-    <td>3: <span style="color: #6a737d;">\( t \sim \text{Uniform}(\{1, \ldots, T\}) \)</span></td>
-    <td>3: <span style="color: #6a737d;">\( z \sim \mathcal{N}(0,I) \)</span> if <span style="color: #6a737d;">\( t > 1 \)</span>, else <span style="color: #6a737d;">\( z = 0 \)</span></td>
-  </tr>
-  <tr>
-    <td>4: <span style="color: #6a737d;">\( \varepsilon \sim \mathcal{N}(0,I) \)</span></td>
-    <td>4: <span style="color: #6a737d;">\( x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left( x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_t, t) \right) + \sigma_t z \)</span></td>
-  </tr>
-  <tr>
-    <td>5: Take gradient descent step on <span style="color: #6a737d;">\( \nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2 \)</span></td>
-    <td>5: <strong>end for</strong></td>
-  </tr>
-  <tr>
-    <td>6: <strong>until</strong> converged</td>
-    <td>6: <strong>return</strong> <span style="color: #6a737d;">\( x_0 \)</span></td>
-  </tr>
-</table>
+| **Algorithm 1** Training | **Algorithm 2** Sampling |
+|--------------------------|--------------------------|
+| 1: **repeat**            | 1: ![eq1](https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_T\sim\mathcal{N}(0,I)}) |
+| 2: ![eq2](https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_0\sim q_\phi(x_0)}) | 2: **for** ![eq3](https://latex.codecogs.com/svg.latex?\textcolor{gray}{t=T,\ldots,1}) **do** |
+| 3: ![eq4](https://latex.codecogs.com/svg.latex?\textcolor{gray}{t\sim\text{Uniform}(\{1,\ldots,T\})}) | 3: ![eq5](https://latex.codecogs.com/svg.latex?\textcolor{gray}{z\sim\mathcal{N}(0,I)}) if ![eq6](https://latex.codecogs.com/svg.latex?\textcolor{gray}{t>1}), else ![eq7](https://latex.codecogs.com/svg.latex?\textcolor{gray}{z=0}) |
+| 4: ![eq8](https://latex.codecogs.com/svg.latex?\textcolor{gray}{\varepsilon\sim\mathcal{N}(0,I)}) | 4: ![eq9](https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_{t-1}=\frac{1}{\sqrt{\alpha_t}}\left(x_t-\frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}}\epsilon_{\theta}(x_t,t)\right)+\sigma_tz}) |
+| 5: Take gradient descent step on ![eq10](https://latex.codecogs.com/svg.latex?\textcolor{gray}{\nabla_{\theta}\|\epsilon-\epsilon_{\theta}(\sqrt{\bar{\alpha}_t}x_0+\sqrt{1-\bar{\alpha}_t}\epsilon,t)\|^2}) | 5: **end for** |
+| 6: **until** converged | 6: **return** ![eq11](https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_0}) |
 
 
 

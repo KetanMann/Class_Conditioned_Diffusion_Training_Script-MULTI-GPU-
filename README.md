@@ -96,7 +96,7 @@ I wrote my own conditional image DDPM pipeline. You can find it in *conditional_
 For sampling look at *sampling.test*.
 
 # Pretrained Checkpoint
-To resume training from checkpoint or inference from pretrained checkpoint, you can download it from here: https://www.kaggle.com/datasets/nyatbleyat/calmness.
+To resume training from checkpoint or inference from pretrained checkpoint, you can download it from here: [https://drive.google.com/file/d/1JpGQQ9VwvPRF4daXMzBqrw9qzTPP6vN9/view?usp=sharing]
 
 Copy to working directory with name {model_name}.
 

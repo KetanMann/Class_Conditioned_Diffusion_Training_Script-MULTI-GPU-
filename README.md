@@ -48,6 +48,7 @@ Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
 
 
+
 **Table**: DDPM Algorithm : Ho et al. (2020)
 
 

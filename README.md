@@ -17,12 +17,13 @@ Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
 | **Algorithm 1** Training | **Algorithm 2** Sampling |
 |--------------------------|--------------------------|
-| 1: **repeat**            | 1: ![eq1](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dx_T%20%5Csim%20%5Cmathcal%7BN%7D%280%2CI%29) |
-| 2: ![eq2](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dx_0%20%5Csim%20q_%5Cphi%28x_0%29) | 2: **for** ![eq3](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dt%20%3D%20T%2C%20%5Cldots%2C%201) **do** |
-| 3: ![eq4](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dt%20%5Csim%20%5Ctext%7BUniform%7D%28%7B1%2C%20%5Cldots%2C%20T%7D%29) | 3: ![eq5](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dz%20%5Csim%20%5Cmathcal%7BN%7D%280%2CI%29) if ![eq6](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dt%20%3E%201), else ![eq7](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dz%20%3D%200) |
-| 4: ![eq8](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7D%5Cvarepsilon%20%5Csim%20%5Cmathcal%7BN%7D%280%2CI%29) | 4: ![eq9](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dx_%7Bt-1%7D%20%3D%20%5Cfrac%7B1%7D%7B%5Csqrt%7B%5Calpha_t%7D%7D%20%5Cleft%28x_t%20-%20%5Cfrac%7B1-%20%5Calpha_%7Bt%7D%7D%7B%5Csqrt%7B1-%5Cbar%7B%5Calpha%7Dt%7D%7D%20%5Cepsilon_%7B%5Ctheta%7D%28x_t%2C%20t%29%20%5Cright%29%20%2B%20%5Csigma_t%20z) |
-| 5: Take gradient descent step on ![eq10](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7D%5Cnabla_%7B%5Ctheta%7D%20%5C%7C%20%5Cepsilon%20-%5Cepsilon_%7B%5Ctheta%7D%28%5Csqrt%7B%5Cbar%7B%5Calpha%7Dt%7D%20x_%7B0%7D%20%2B%20%5Csqrt%7B1-%5Cbar%7B%5Calpha%7Dt%7D%20%5Cepsilon%20%2C%20t%29%20%5C%7C%5E2) | 5: **end for** |
-| 6: **until** converged | 6: **return** ![eq11](https://latex.codecogs.com/svg.latex?%5Ccolor%7B8B8B8B%7Dx_0) |
+| 1: **repeat**            | 1: ![eq1](https://latex.codecogs.com/svg.latex?x_T%20\sim%20\mathcal{N}(0,I)) |
+| 2: ![eq2](https://latex.codecogs.com/svg.latex?x_0%20\sim%20q_\phi(x_0)) | 2: **for** ![eq3](https://latex.codecogs.com/svg.latex?t%20=%20T,%20\ldots,%201) **do** |
+| 3: ![eq4](https://latex.codecogs.com/svg.latex?t%20\sim%20\text{Uniform}(\{1,%20\ldots,%20T\})) | 3: ![eq5](https://latex.codecogs.com/svg.latex?z%20\sim%20\mathcal{N}(0,I)) if ![eq6](https://latex.codecogs.com/svg.latex?t%20>%201), else ![eq7](https://latex.codecogs.com/svg.latex?z%20=%200) |
+| 4: ![eq8](https://latex.codecogs.com/svg.latex?\varepsilon%20\sim%20\mathcal{N}(0,I)) | 4: ![eq9](https://latex.codecogs.com/svg.latex?x_{t-1}%20=%20\frac{1}{\sqrt{\alpha_t}}%20\left(x_t%20-%20\frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}}%20\epsilon_{\theta}(x_t,%20t)%20\right)%20+%20\sigma_t%20z) |
+| 5: Take gradient descent step on ![eq10](https://latex.codecogs.com/svg.latex?\nabla_{\theta}%20\|%20\epsilon%20-\epsilon_{\theta}(\sqrt{\bar{\alpha}_t}%20x_{0}%20+%20\sqrt{1-\bar{\alpha}_t}%20\epsilon%20,%20t)%20\|^2) | 5: **end for** |
+| 6: **until** converged | 6: **return** ![eq11](https://latex.codecogs.com/svg.latex?x_0) |
+
 
 
 

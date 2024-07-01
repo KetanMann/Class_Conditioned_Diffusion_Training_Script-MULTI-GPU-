@@ -15,14 +15,14 @@ The custom pipeline is used to save images while training and finally it can be 
 
 Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
-| <span style="color:gray;">**Algorithm 1** Training</span> | <span style="color:gray;">**Algorithm 2** Sampling</span> |
+| **Algorithm 1** Training | **Algorithm 2** Sampling |
 |--------------------------|--------------------------|
-| <span style="color:gray;">1: **repeat**</span>            | <span style="color:gray;">1: <img src="https://latex.codecogs.com/svg.latex?x_T\sim\mathcal{N}(0,I)" /></span> |
-| <span style="color:gray;">2: <img src="https://latex.codecogs.com/svg.latex?x_0\sim q_\phi(x_0)" /></span> | <span style="color:gray;">2: **for** <img src="https://latex.codecogs.com/svg.latex?t = T, \ldots, 1" /> **do**</span> |
-| <span style="color:gray;">3: <img src="https://latex.codecogs.com/svg.latex?t \sim \text{Uniform}(\{1, \ldots, T\})" /></span> | <span style="color:gray;">3: <img src="https://latex.codecogs.com/svg.latex?z \sim \mathcal{N}(0,I)" /> if <img src="https://latex.codecogs.com/svg.latex?t > 1" />, else <img src="https://latex.codecogs.com/svg.latex?z = 0" /></span> |
-| <span style="color:gray;">4: <img src="https://latex.codecogs.com/svg.latex?\varepsilon \sim \mathcal{N}(0,I)" /></span> | <span style="color:gray;">4: <img src="https://latex.codecogs.com/svg.latex?x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left(x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_t, t) \right) + \sigma_t z" /></span> |
-| <span style="color:gray;">5: Take gradient descent step on <img src="https://latex.codecogs.com/svg.latex?\nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2" /></span> | <span style="color:gray;">5: **end for**</span> |
-| <span style="color:gray;">6: **until** converged</span> | <span style="color:gray;">6: **return** <img src="https://latex.codecogs.com/svg.latex?x_0" /></span> |
+| 1: **repeat**            | 1: <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_T\sim\mathcal{N}(0,I)}" /> |
+| 2: <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_0\sim q_\phi(x_0)}" /> | 2: **for** <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{t=T,\ldots,1}" /> **do** |
+| 3: <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{t\sim\text{Uniform}(\{1,\ldots,T\})}" /> | 3: <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{z\sim\mathcal{N}(0,I)}" /> if <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{t>1}" />, else <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{z=0}" /> |
+| 4: <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{\varepsilon\sim\mathcal{N}(0,I)}" /> | 4: <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_{t-1}=\frac{1}{\sqrt{\alpha_t}}\left(x_t-\frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}}\epsilon_{\theta}(x_t,t)\right)+\sigma_tz}" /> |
+| 5: Take gradient descent step on <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{\nabla_{\theta}\|\varepsilon-\epsilon_{\theta}(\sqrt{\bar{\alpha}_t}x_0+\sqrt{1-\bar{\alpha}_t}\varepsilon,t)\|^2}" /> | 5: **end for** |
+| 6: **until** converged | 6: **return** <img src="https://latex.codecogs.com/svg.latex?\textcolor{gray}{x_0}" /> |
 
 
 

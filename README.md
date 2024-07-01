@@ -17,12 +17,13 @@ Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
 | <span style="color:gray;">**Algorithm 1** Training</span> | <span style="color:gray;">**Algorithm 2** Sampling</span> |
 |--------------------------|--------------------------|
-| <span style="color:gray;">1: **repeat**</span>            | <span style="color:gray;">1: ![eq1](https://latex.codecogs.com/svg.latex?x_T%20\sim%20\mathcal{N}(0,I))</span> |
-| <span style="color:gray;">2: ![eq2](https://latex.codecogs.com/svg.latex?x_0%20\sim%20q_\phi(x_0))</span> | <span style="color:gray;">2: **for** ![eq3](https://latex.codecogs.com/svg.latex?t%20=%20T,%20\ldots,%201) **do**</span> |
-| <span style="color:gray;">3: ![eq4](https://latex.codecogs.com/svg.latex?t%20\sim%20\text{Uniform}(\{1,%20\ldots,%20T\}))</span> | <span style="color:gray;">3: ![eq5](https://latex.codecogs.com/svg.latex?z%20\sim%20\mathcal{N}(0,I)) if ![eq6](https://latex.codecogs.com/svg.latex?t%20>%201), else ![eq7](https://latex.codecogs.com/svg.latex?z%20=%200)</span> |
-| <span style="color:gray;">4: ![eq8](https://latex.codecogs.com/svg.latex?\varepsilon%20\sim%20\mathcal{N}(0,I))</span> | <span style="color:gray;">4: ![eq9](https://latex.codecogs.com/svg.latex?x_{t-1}%20=%20\frac{1}{\sqrt{\alpha_t}}%20\left(x_t%20-%20\frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}}%20\epsilon_{\theta}(x_t,%20t)%20\right)%20+%20\sigma_t%20z)</span> |
-| <span style="color:gray;">5: Take gradient descent step on ![eq10](https://latex.codecogs.com/svg.latex?\nabla_{\theta}%20\|%20\epsilon%20-\epsilon_{\theta}(\sqrt{\bar{\alpha}_t}%20x_{0}%20+%20\sqrt{1-\bar{\alpha}_t}%20\epsilon%20,%20t)%20\|^2)</span> | <span style="color:gray;">5: **end for**</span> |
-| <span style="color:gray;">6: **until** converged</span> | <span style="color:gray;">6: **return** ![eq11](https://latex.codecogs.com/svg.latex?x_0)</span> |
+| <span style="color:gray;">1: **repeat**</span>            | <span style="color:gray;">1: <img src="https://latex.codecogs.com/svg.latex?x_T\sim\mathcal{N}(0,I)" /></span> |
+| <span style="color:gray;">2: <img src="https://latex.codecogs.com/svg.latex?x_0\sim q_\phi(x_0)" /></span> | <span style="color:gray;">2: **for** <img src="https://latex.codecogs.com/svg.latex?t = T, \ldots, 1" /> **do**</span> |
+| <span style="color:gray;">3: <img src="https://latex.codecogs.com/svg.latex?t \sim \text{Uniform}(\{1, \ldots, T\})" /></span> | <span style="color:gray;">3: <img src="https://latex.codecogs.com/svg.latex?z \sim \mathcal{N}(0,I)" /> if <img src="https://latex.codecogs.com/svg.latex?t > 1" />, else <img src="https://latex.codecogs.com/svg.latex?z = 0" /></span> |
+| <span style="color:gray;">4: <img src="https://latex.codecogs.com/svg.latex?\varepsilon \sim \mathcal{N}(0,I)" /></span> | <span style="color:gray;">4: <img src="https://latex.codecogs.com/svg.latex?x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left(x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_t, t) \right) + \sigma_t z" /></span> |
+| <span style="color:gray;">5: Take gradient descent step on <img src="https://latex.codecogs.com/svg.latex?\nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2" /></span> | <span style="color:gray;">5: **end for**</span> |
+| <span style="color:gray;">6: **until** converged</span> | <span style="color:gray;">6: **return** <img src="https://latex.codecogs.com/svg.latex?x_0" /></span> |
+
 
 
 

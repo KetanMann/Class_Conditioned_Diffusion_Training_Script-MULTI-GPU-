@@ -22,27 +22,27 @@ Below is the table for the DDPM Algorithm from Ho et al. (2020):
   </tr>
   <tr>
     <td>1: <strong>repeat</strong></td>
-    <td>1: <span style="color: white;">\( x_T \sim \mathcal{N}(0,I) \)</span></td>
+    <td>1: <span style="color: #6a737d;">\( x_T \sim \mathcal{N}(0,I) \)</span></td>
   </tr>
   <tr>
-    <td>2: <span style="color: white;">\( x_0 \sim q_\phi(x_0) \)</span></td>
-    <td>2: <strong>for</strong> <span style="color: white;">\( t = T, \ldots, 1 \)</span> <strong>do</strong></td>
+    <td>2: <span style="color: #6a737d;">\( x_0 \sim q_\phi(x_0) \)</span></td>
+    <td>2: <strong>for</strong> <span style="color: #6a737d;">\( t = T, \ldots, 1 \)</span> <strong>do</strong></td>
   </tr>
   <tr>
-    <td>3: <span style="color: white;">\( t \sim \text{Uniform}(\{1, \ldots, T\}) \)</span></td>
-    <td>3: <span style="color: white;">\( z \sim \mathcal{N}(0,I) \)</span> if <span style="color: white;">\( t > 1 \)</span>, else <span style="color: white;">\( z = 0 \)</span></td>
+    <td>3: <span style="color: #6a737d;">\( t \sim \text{Uniform}(\{1, \ldots, T\}) \)</span></td>
+    <td>3: <span style="color: #6a737d;">\( z \sim \mathcal{N}(0,I) \)</span> if <span style="color: #6a737d;">\( t > 1 \)</span>, else <span style="color: #6a737d;">\( z = 0 \)</span></td>
   </tr>
   <tr>
-    <td>4: <span style="color: white;">\( \varepsilon \sim \mathcal{N}(0,I) \)</span></td>
-    <td>4: <span style="color: white;">\( x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left( x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_t, t) \right) + \sigma_t z \)</span></td>
+    <td>4: <span style="color: #6a737d;">\( \varepsilon \sim \mathcal{N}(0,I) \)</span></td>
+    <td>4: <span style="color: #6a737d;">\( x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left( x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_t, t) \right) + \sigma_t z \)</span></td>
   </tr>
   <tr>
-    <td>5: Take gradient descent step on <span style="color: white;">\( \nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2 \)</span></td>
+    <td>5: Take gradient descent step on <span style="color: #6a737d;">\( \nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2 \)</span></td>
     <td>5: <strong>end for</strong></td>
   </tr>
   <tr>
     <td>6: <strong>until</strong> converged</td>
-    <td>6: <strong>return</strong> <span style="color: white;">\( x_0 \)</span></td>
+    <td>6: <strong>return</strong> <span style="color: #6a737d;">\( x_0 \)</span></td>
   </tr>
 </table>
 

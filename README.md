@@ -15,14 +15,37 @@ The custom pipeline is used to save images while training and finally it can be 
 
 Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
-| **Algorithm 1** Training | **Algorithm 2** Sampling |
-|--------------------------|--------------------------|
-| 1: **repeat**            | 1: ![eq1](https://latex.codecogs.com/svg.latex?x_T%20\sim%20\mathcal{N}(0,I)) |
-| 2: ![eq2](https://latex.codecogs.com/svg.latex?x_0%20\sim%20q_\phi(x_0)) | 2: **for** ![eq3](https://latex.codecogs.com/svg.latex?t%20=%20T,%20\ldots,%201) **do** |
-| 3: ![eq4](https://latex.codecogs.com/svg.latex?t%20\sim%20\text{Uniform}(\{1,%20\ldots,%20T\})) | 3: ![eq5](https://latex.codecogs.com/svg.latex?z%20\sim%20\mathcal{N}(0,I)) if ![eq6](https://latex.codecogs.com/svg.latex?t%20>%201), else ![eq7](https://latex.codecogs.com/svg.latex?z%20=%200) |
-| 4: ![eq8](https://latex.codecogs.com/svg.latex?\varepsilon%20\sim%20\mathcal{N}(0,I)) | 4: ![eq9](https://latex.codecogs.com/svg.latex?x_{t-1}%20=%20\frac{1}{\sqrt{\alpha_t}}%20\left(x_t%20-%20\frac{1-%20\alpha_{t}}{\sqrt{1-\bar{\alpha}_t}}%20\epsilon_{\theta}(x_t,%20t)%20\right)%20+%20\sigma_t%20z) |
-| 5: Take gradient descent step on ![eq10](https://latex.codecogs.com/svg.latex?\nabla_{\theta}%20\|%20\epsilon%20-\epsilon_{\theta}(\sqrt{\bar{\alpha}_t}%20x_{0}%20+%20\sqrt{1-\bar{\alpha}_t}%20\epsilon%20,%20t)%20\|^2) | 5: **end for** |
-| 6: **until** converged | 6: **return** ![eq11](https://latex.codecogs.com/svg.latex?x_0) |
+<table>
+  <tr>
+    <th>Algorithm 1 Training</th>
+    <th>Algorithm 2 Sampling</th>
+  </tr>
+  <tr>
+    <td>1: <strong>repeat</strong></td>
+    <td>1: <span style="color: white;">\( x_T \sim \mathcal{N}(0,I) \)</span></td>
+  </tr>
+  <tr>
+    <td>2: <span style="color: white;">\( x_0 \sim q_\phi(x_0) \)</span></td>
+    <td>2: <strong>for</strong> <span style="color: white;">\( t = T, \ldots, 1 \)</span> <strong>do</strong></td>
+  </tr>
+  <tr>
+    <td>3: <span style="color: white;">\( t \sim \text{Uniform}(\{1, \ldots, T\}) \)</span></td>
+    <td>3: <span style="color: white;">\( z \sim \mathcal{N}(0,I) \)</span> if <span style="color: white;">\( t > 1 \)</span>, else <span style="color: white;">\( z = 0 \)</span></td>
+  </tr>
+  <tr>
+    <td>4: <span style="color: white;">\( \varepsilon \sim \mathcal{N}(0,I) \)</span></td>
+    <td>4: <span style="color: white;">\( x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left( x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_t, t) \right) + \sigma_t z \)</span></td>
+  </tr>
+  <tr>
+    <td>5: Take gradient descent step on <span style="color: white;">\( \nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2 \)</span></td>
+    <td>5: <strong>end for</strong></td>
+  </tr>
+  <tr>
+    <td>6: <strong>until</strong> converged</td>
+    <td>6: <strong>return</strong> <span style="color: white;">\( x_0 \)</span></td>
+  </tr>
+</table>
+
 
 
 **Table**: DDPM Algorithm : Ho et al. (2020)

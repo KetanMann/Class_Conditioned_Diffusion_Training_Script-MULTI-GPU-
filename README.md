@@ -97,6 +97,7 @@ For sampling look at *sampling.test*.
 
 # Pretrained Checkpoint
 To resume training from checkpoint or inference from pretrained checkpoint, you can download it from here: [https://drive.google.com/file/d/1JpGQQ9VwvPRF4daXMzBqrw9qzTPP6vN9/view?usp=sharing]
+## Model has been uploaded at HuggingFace Hub and also there are some instructions for sampling: [https://huggingface.co/Ketansomewhere/cifar10_conditional_diffusion1]
 
 Copy to working directory with name {model_name}.
 

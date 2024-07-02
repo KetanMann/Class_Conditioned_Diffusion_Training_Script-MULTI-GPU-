@@ -10,6 +10,7 @@ Model is based on Hugging face unconditional training script. But as the name su
 The custom pipeline is used to save images while training and finally it can be used to generate specific label images. See section "Writing Custom Pipeline for conditional image generation"
 
 **FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**
+![](grid_images.gif)
 
 # DDPM Algorithm
 
@@ -105,7 +106,7 @@ Copy to working directory with name {model_name}.
 
 
 
-![](grid_images.gif)
+
 
 airplane - index0 
 

@@ -15,6 +15,12 @@ The custom pipeline is used to save images while training and finally it can be 
     <img src="grid_images.gif" alt="Class Conditioned Diffusion GIF">
 </div>
 
+## Results on FER2013
+<div align="center">
+    <img src="grid_images_fer.gif" alt="Class Conditioned Diffusion GIF">
+</div>
+
+
 # DDPM Algorithm
 
 Below is the table for the DDPM Algorithm from Ho et al. (2020):

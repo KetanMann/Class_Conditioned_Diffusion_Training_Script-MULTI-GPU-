@@ -25,23 +25,8 @@ The custom pipeline is used to save images while training, and finally, it can b
 
 # DDPM Algorithm
 
-### Algorithm 1: Training
+![My Image](Algorithm.jpg)
 
-1. **repeat**
-2. \( x_0 \sim q_\phi(x_0) \)
-3. \( t \sim \text{Uniform}(\{1, \ldots, T\}) \)
-4. \( \varepsilon \sim \mathcal{N}(0,I) \)
-5. Take gradient descent step on \( \nabla_{\theta} \| \epsilon - \epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2 \)
-6. **until** converged
-
-### Algorithm 2: Sampling
-
-1. \( x_T \sim \mathcal{N}(0,I) \)
-2. **for** \( t = T, \ldots, 1 \) **do**
-3. \( z \sim \mathcal{N}(0,I) \) if \( t > 1 \), else \( z = 0 \)
-4. \( x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left(x_t - \frac{1- \alpha_{t}}{\sqrt{1-\bar{\alpha}_t}} \epsilon_{\theta}(x_0, t) \right) + \sigma_t z \)
-5. **end for**
-6. **return** \( x_0 \)
  DDPM Algorithm: Ho et al. (2020)
 
 

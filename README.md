@@ -11,12 +11,13 @@ The custom pipeline is used to save images while training, and finally, it can b
 
 **FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**
 
+## Results on CIFAR10 
 <div align="center">
     <img src="grid_images.gif" alt="Class Conditioned Diffusion GIF">
 </div>
 
 
-## Results on FER 2013
+## Results on FER 2013 
 
 <div align="center">
     <img src="grid_images_fer.gif" alt="Class Conditioned Diffusion GIF" width="700" height="700">

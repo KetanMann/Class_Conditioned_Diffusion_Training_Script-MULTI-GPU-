@@ -12,7 +12,7 @@ The custom pipeline is used to save images while training, and finally, it can b
 **FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**
 Please use older accelerate version. There is a resume error if you latest version.
 ```bash
-accelerate==0.21.0
+pip install accelerate==0.21.0
 ```
 
 ## Results on CIFAR10 

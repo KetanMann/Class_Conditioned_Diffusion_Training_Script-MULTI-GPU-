@@ -10,6 +10,10 @@ The model is based on the Hugging Face unconditional training script. But as the
 The custom pipeline is used to save images while training, and finally, it can be used to generate specific label images. See the section "Writing Custom Pipeline for conditional image generation"
 
 **FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**
+Please use older accelerate version. There is a resume error if you latest version.
+```bash
+accelerate==0.21.0
+```
 
 ## Results on CIFAR10 
 <div align="center">

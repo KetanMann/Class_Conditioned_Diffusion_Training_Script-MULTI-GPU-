@@ -19,7 +19,7 @@ The custom pipeline is used to save images while training, and finally, it can b
 ## Results on FER 2013
 
 <div align="center">
-    <img src="grid_images_fer.gif" alt="Class Conditioned Diffusion GIF">
+    <img src="grid_images_fer.gif" alt="Class Conditioned Diffusion GIF" width="700" height="700">
 </div>
 
 

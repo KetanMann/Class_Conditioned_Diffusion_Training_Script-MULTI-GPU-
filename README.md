@@ -1,31 +1,28 @@
 # DDPM with SNR weights for Class conditioned Image generation(with Multi-GPU Support).
 
-Diffusion Model are inspired by Non-equillibrium Thermodynamics. The diffusion model defines a Markov chain of slowing adding Gaussian noise/noise corruption to get an isotropic noise and then learning how to reverse this process to generate new samples. 
-DDPM trains a sequence of  models to reverse each step of the noise corruption, using knowledge of the function form of the reverse distributions to make training tractable. There are 3 major components of diffusion models- Corruption Process, UNet to learn reverse process and a Sampler for generating new images. 
+Diffusion Models are inspired by Non-equilibrium Thermodynamics. The diffusion model defines a Markov chain of slowing adding Gaussian noise/noise corruption to get an isotropic noise and then learning how to reverse this process to generate new samples. 
+DDPM trains a sequence of  models to reverse each step of the noise corruption, using knowledge of the function form of the reverse distributions to make training tractable. There are 3 major components of diffusion models- Corruption Process, UNet to learn to reverse the process, and a Sampler for generating new images. 
 
 
 # Class Conditioned DDPM with custom Pipeline for Image Generation. (using HuggingFace Diffusers)
 
-Model is based on Hugging face unconditional training script. But as the name suggest it didn't have class conditioning support. I modified the script to add class conditioning support. Currently label names are taken as directory names containing respective class label's images. You can easily modify the script. Also make sure to change the num_classes to number of labels. You modify the class embedding type see Unet2DModel from diffusers. 
-The custom pipeline is used to save images while training and finally it can be used to generate specific label images. See section "Writing Custom Pipeline for conditional image generation"
+The model is based on the Hugging Face unconditional training script. But as the name suggests, it didn't have class conditioning support. I modified the script to add class conditioning support. Currently, label names are taken as directory names containing images of the respective class label. You can easily modify the script. Also, make sure to change the num_classes to a number of labels. If you modify the class embedding type, see Unet2DModel from diffusers. 
+The custom pipeline is used to save images while training, and finally, it can be used to generate specific label images. See the section "Writing Custom Pipeline for conditional image generation"
 
 **FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**
 
 <div align="center">
-    <img src="grid_images.gif" alt="Class Conditioned Diffusion GIF">
+    <img src="grid_images.gif" alt="Class Conditioned Diffusion GIF" width="400" height="300">
 </div>
 
-## Results on FER2013
+
+## Results on FER 2013
 <div align="center">
     <img src="grid_images_fer.gif" alt="Class Conditioned Diffusion GIF">
 </div>
 
 
 # DDPM Algorithm
-
-Below is the table for the DDPM Algorithm from Ho et al. (2020):
-
-Below is the table for the DDPM Algorithm from Ho et al. (2020):
 
 | **Algorithm 1** Training | **Algorithm 2** Sampling |
 |--------------------------|--------------------------|
@@ -36,7 +33,7 @@ Below is the table for the DDPM Algorithm from Ho et al. (2020):
 | 5: Take gradient descent step on $\nabla_{\theta} \| \epsilon -\epsilon_{\theta}(\sqrt{\bar{\alpha}_t} x_{0} + \sqrt{1-\bar{\alpha}_t} \epsilon , t) \|^2$ | 5: **end for** |
 | 6: **until** converged | 6: **return** $x_0$ |
 
-**Table**: DDPM Algorithm : Ho et al. (2020)
+**Table**: DDPM Algorithm: Ho et al. (2020)
 
 
 ## Training Hyperparameters are as follows:-  

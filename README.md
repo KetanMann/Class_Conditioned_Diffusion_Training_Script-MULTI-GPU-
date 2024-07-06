@@ -6,11 +6,11 @@ DDPM trains a sequence of  models to reverse each step of the noise corruption, 
 
 # Class Conditioned DDPM with custom Pipeline for Image Generation. (using HuggingFace Diffusers)
 
-The model is based on the Hugging Face unconditional training script. But as the name suggests, it didn't have class conditioning support. I modified the script to add class conditioning support. Currently, label names are taken as directory names containing images of the respective class label. You can easily modify the script. Also, make sure to change the num_classes to a number of labels. If you modify the class embedding type, see Unet2DModel from diffusers. 
+The model is based on the Hugging Face unconditional training script. But as the name suggests, it didn't have class conditioning support. I modified the script to add class conditioning support. Currently, label names are taken as directory names containing images of the respective class labels. You can easily modify the script for other data formats. Also, make sure to change the num_classes to a number of labels. If you want to modify the class embedding type or make other modifications, see Unet2DModel from diffusers. 
 The custom pipeline is used to save images while training, and finally, it can be used to generate specific label images. See the section "Writing Custom Pipeline for conditional image generation"
 
 **FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**
-Please use older accelerate version. There is a resume error if you latest version.
+Please use older accelerate version. There is a resume error if you have the latest version.
 ```bash
 pip install accelerate==0.21.0
 ```
@@ -64,7 +64,7 @@ prediction_type="sample" \                 # Default : "epsilon" : Noise Predict
 Some other parameters that were set to default are- _model_config_name_or_path, random_flip, adam_beta1, adam_beta2, adam_weight_decay, lr_scheduler, lr_warmup_steps, enable_xformers_memory_efficient_attention, logger, save_model_epochs, mixed_precision, eval_batch_size, num_epochs, use_ema, ddpm_num_steps_. 
 
 # How to run training script
-Firstly there are some requirements:-
+Firstly, there are some requirements:-
 
 ## Requirements
 ``` bash

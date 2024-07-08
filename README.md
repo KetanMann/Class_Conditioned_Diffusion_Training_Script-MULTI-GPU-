@@ -6,7 +6,7 @@ DDPM trains a sequence of  models to reverse each step of the noise corruption, 
 
 # Class Conditioned DDPM with custom Pipeline for Image Generation. (using HuggingFace Diffusers)
 
-The model is based on the Hugging Face unconditional training script. But as the name suggests, it didn't have class conditioning support. I modified the script to add class conditioning support. Currently, label names are taken as directory names containing images of the respective class labels. You can easily modify the script for other data formats. Also, make sure to change the num_classes to a number of labels. If you want to modify the class embedding type or make other modifications, see Unet2DModel from diffusers. 
+The model is based on the Hugging Face unconditional diffusion model training script. But as the name suggests, it didn't have class conditioning support. I modified the script to add class conditioning support. Currently, label names are taken as directory names containing images of the respective class labels. You can easily modify the script for other data formats. Also, make sure to change the num_classes to a number of labels. If you want to modify the class embedding type or make other modifications, see Unet2DModel from diffusers. 
 The custom pipeline is used to save images while training, and finally, it can be used to generate specific label images. See the section "Writing Custom Pipeline for conditional image generation"
 
 **FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**

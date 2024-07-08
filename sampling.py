@@ -1,3 +1,4 @@
+# The Grid Size is defined as sq. root of batch size. You may change the code for a customized grid. You will get an error if batch_size != sq root(batch_size). 
 import torch
 from diffusers import UNet2DModel, DDPMScheduler
 from diffusers.pipelines.pipeline_utils import DiffusionPipeline, ImagePipelineOutput

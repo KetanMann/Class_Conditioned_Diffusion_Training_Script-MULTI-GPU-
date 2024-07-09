@@ -77,7 +77,7 @@ and
  ```
 You may need to restart kernel after installing these.(In case of Online notebooks it was required.)
 ## Running Training Script
-You also may look through training_nb.ipynb for all these implementation. 
+You also may look through train-conditional-tutorial.ipynb for all these implementation. 
 ``` bash
 !accelerate launch --multi_gpu train_conditional.py \
     dataset_name="/your/dataset/directory" \  

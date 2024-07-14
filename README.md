@@ -79,25 +79,27 @@ You may need to restart kernel after installing these.(In case of Online noteboo
 ## Running Training Script
 You also may look through train-conditional-tutorial.ipynb for all these implementation. 
 ``` bash
-!accelerate launch --multi_gpu train_conditional.py \
-    dataset_name="/your/dataset/directory" \  
-    resolution=32 \                          
-    output_dir={model_name} \                  
-    train_batch_size=64 \                      
-    dataloader_num_workers=8 \
-    # eval_batch_size should be equal to train_batch_size             
-    eval_batch_size=64 \                         
-    num_epochs=2000 \                          
-    use_ema \                                  
-    gradient_accumulation_steps=4 \            
-    learning_rate=1e-4 \                       
-    lr_warmup_steps=1000 \                     
-    mixed_precision="no" \                     
-    save_images_epoch=50 \                     
-    ddpm_beta_schedule="squaredcos_cap_v2" \    
-    checkpointing_steps=2000 \                 
-    resume_from_checkpoint="latest" \         
-    prediction_type="sample"    
+
+!accelerate launch --multi_gpu train_unconditional.py \
+  --dataset_name="/your/dataset/directory" \
+  --resolution=512 \
+  --output_dir={model_name} \
+  --train_batch_size=1 \
+  --dataloader_num_workers=4 \
+  --eval_batch_size=1 \
+  --num_epochs=2000 \
+  --use_ema \
+  --gradient_accumulation_steps=4 \
+  --learning_rate=5e-5 \
+  --lr_warmup_steps=1000 \
+  --mixed_precision="no" \
+  --save_images_epoch=15 \
+  --ddpm_beta_schedule="squaredcos_cap_v2" \
+  --checkpointing_steps=2000 \
+  --resume_from_checkpoint="latest" \
+  --enable_xformers_memory_efficient_attention \
+  --prediction_type="sample" \
+  --logger="wandb"  
 ```
 # Writing Custom Pipeline for Conditional Image generation:-
 I wrote my own conditional image DDPM pipeline. You can find it in *conditional_pipeline.py* file. This way you can generate your own class_index image. Here is an implementation of it using CIFAR10 dataset.

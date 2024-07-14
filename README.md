@@ -80,7 +80,7 @@ You may need to restart kernel after installing these.(In case of Online noteboo
 You also may look through train-conditional-tutorial.ipynb for all these implementation. 
 ``` bash
 
-!accelerate launch --multi_gpu train_unconditional.py \
+!accelerate launch --multi_gpu train_conditional.py \
   --dataset_name="/your/dataset/directory" \
   --resolution=512 \
   --output_dir={model_name} \

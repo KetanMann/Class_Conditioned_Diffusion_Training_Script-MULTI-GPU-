@@ -15,13 +15,13 @@ Please use older accelerate version. There is a resume error if you have the lat
 pip install accelerate==0.21.0
 ```
 
-## Results on CIFAR10 
+## Generated Images(training on CIFAR10) 
 <div align="center">
     <img src="grid_images.gif" alt="Class Conditioned Diffusion GIF">
 </div>
 
 
-## Results on FER 2013 
+## Generated Images(training on FER2013) 
 
 <div align="center">
     <img src="grid_images_fer.gif" alt="Class Conditioned Diffusion GIF" width="700" height="700">

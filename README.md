@@ -69,13 +69,12 @@ Firstly, there are some requirements:-
 ## Requirements
 ``` bash
 pip install tensorflow
-pip install -qq -U diffusers datasets transformers accelerate==0.21.0 ftfy pyarrow==9.0.0 xformers==0.0.27
-``
-Latest xformers has some issues with PyTorch
+pip install -qq -U diffusers datasets transformers accelerate==0.21.0 ftfy pyarrow==9.0.0
+```
 and 
 ``` bash
  pip install git+https://github.com/huggingface/diffusers 
- ```
+```
 
 You may need to restart kernel after installing these.(In case of Online notebooks it was required.)
 ## Running Training Script

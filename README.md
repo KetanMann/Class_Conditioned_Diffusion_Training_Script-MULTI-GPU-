@@ -9,7 +9,6 @@ DDPM trains a sequence of  models to reverse each step of the noise corruption, 
 The model is based on the Hugging Face unconditional diffusion model training script. But as the name suggests, it didn't have class conditioning support. I modified the script to add class conditioning support. Currently, label names are taken as directory names containing images of the respective class labels. You can easily modify the script for other data formats. Also, make sure to change the num_classes to a number of labels. If you want to modify the class embedding type or make other modifications, see Unet2DModel from diffusers. 
 The custom pipeline is used to save images while training, and finally, it can be used to generate specific label images. See the section "Writing Custom Pipeline for conditional image generation"
 
-**FOR FULL IMPLEMENTATION, TRAINING and SAMPLING see train_conditional_tutorial.ipynb**
 Please use older accelerate version. There is a resume error if you have the latest version.
 ```bash
 pip install accelerate==0.21.0
@@ -49,6 +48,7 @@ and
 
 You may need to restart kernel after installing these.(In case of Online notebooks it was required.)
 ## Running Training Script
+Check tutorial demo-cifar10.ipynb
 You also may look through train-conditional-tutorial.ipynb for all these implementation. 
 ```bash
 !git clone https://github.com/KetanMann/Class_Conditioned_Diffusion_Training_Script-MULTI-GPU-/

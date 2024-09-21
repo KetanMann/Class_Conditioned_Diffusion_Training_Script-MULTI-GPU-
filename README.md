@@ -34,35 +34,6 @@ pip install accelerate==0.21.0
 
  DDPM Algorithm: Ho et al. (2020)
 
-
-## Training Hyperparameters are as follows:-  
-```bash
-
-dataset_name="/your/dataset/directory" \   # Dataset Folder
-resolution=32 \                           # Image Resolution 
-output_dir={model_name} \                  # Output Dir 
-train_batch_size=64 \                       # Batch Size
-dataloader_num_workers=8 \                 # More workers faster loading but more R.A.M. consumption.
-# Make  sure  eval_batch_size= train_batch_size
-eval_batch_size=64 \                        # Images just for evaluation in logs or save images after specified number of epochs.
-num_epochs=2000 \                          # No. of Epochs. Epochs Calculation from step size shown in box.
-use_ema \                                  # EMA leads to better convergence and smooth model training.
-gradient_accumulation_steps=4 \            # Effective Batch Size = gradient_accumulation_stepss * batch_size (This way Lower VRAM consumption)
-learning_rate=1e-4 \                       # Learning Rate
-lr_warmup_steps=1000 \                     # LR Warmup steps - have shown better convergence (See learning rate scheduler) 
-mixed_precision="no" \                     # fp16's quality was very bad. bf16 is supported by some Nvidia GPU's. If supported please use bf16. Huge GPU memory reduction.
-save_images_epoch=50 \                     # After how many epochs images(generated for testing) should be saved.
-ddpm_beta_schedule="squaredcos_cap_v2" \   # It was shown by OpenAI that cosine schedulers work better than 'linear'. 
-checkpointing_steps=2000 \                 # After how many steps, checkpoints should be saved.(See below to know how to infer number of epochs from checkpoints.)
-resume_from_checkpoint="latest" \          # If you want to resume from a given checkpoint (See *Model General Structure.png* for structure). The directory containing 
-                                             #this should be named output_dir.
-prediction_type="sample" \                 # Default : "epsilon" : Noise Prediction in case DDPM with without SNR.
-                                           # SNR weights and SNR loss function used in case of Sample Prediction.(very very crucial).
-```
-
-
-Some other parameters that were set to default are- _model_config_name_or_path, random_flip, adam_beta1, adam_beta2, adam_weight_decay, lr_scheduler, lr_warmup_steps, enable_xformers_memory_efficient_attention, logger, save_model_epochs, mixed_precision, eval_batch_size, num_epochs, use_ema, ddpm_num_steps_. 
-
 # How to run training script
 Firstly, there are some requirements:-
 
@@ -79,14 +50,20 @@ and
 You may need to restart kernel after installing these.(In case of Online notebooks it was required.)
 ## Running Training Script
 You also may look through train-conditional-tutorial.ipynb for all these implementation. 
+```bash
+!git clone https://github.com/KetanMann/Class_Conditioned_Diffusion_Training_Script-MULTI-GPU-/
+```
+```
+cd Class_Conditioned_Diffusion_Training_Script-MULTI-GPU-/
+```
+Now we can run script:-
 ``` bash
-
 !accelerate launch --multi_gpu train_conditional.py \
-  --dataset_name="/your/dataset/directory" \
+  --dataset_name="/kaggle/input/cifar10-pngs-in-folders/cifar10/train" \
   --resolution=512 \
   --output_dir={model_name} \
   --train_batch_size=1 \
-  --dataloader_num_workers=4 \
+  --dataloader_num_workers=8 \
   --eval_batch_size=1 \
   --num_epochs=2000 \
   --use_ema \
@@ -98,9 +75,9 @@ You also may look through train-conditional-tutorial.ipynb for all these impleme
   --ddpm_beta_schedule="squaredcos_cap_v2" \
   --checkpointing_steps=2000 \
   --resume_from_checkpoint="latest" \
-  --enable_xformers_memory_efficient_attention \
+  --num_classes=10 \
   --prediction_type="sample" \
-  --logger="wandb"  
+  --logger="wandb"
 ```
 # Writing Custom Pipeline for Conditional Image generation:-
 I wrote my own conditional image DDPM pipeline. You can find it in *conditional_pipeline.py* file. This way you can generate your own class_index image. Here is an implementation of it using CIFAR10 dataset.

@@ -1,4 +1,3 @@
-%%writefile train_conditional.py
 import argparse
 import inspect
 import logging

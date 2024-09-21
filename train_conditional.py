@@ -25,7 +25,7 @@ from diffusers import DDPMPipeline, DDPMScheduler, UNet2DModel, AutoPipelineForT
 from diffusers.optimization import get_scheduler
 from diffusers.training_utils import EMAModel
 from diffusers.utils import check_min_version, is_accelerate_version, is_tensorboard_available, is_wandb_available
-from CustomPipeline import DDPMPipelinenew
+from conditional_pipeline import DDPMPipelinenew
 
 # Will error if the minimal version of diffusers is not installed. Remove at your own risks.
 check_min_version("0.28.0.dev0")

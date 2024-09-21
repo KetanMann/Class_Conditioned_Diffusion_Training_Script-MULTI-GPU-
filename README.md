@@ -89,10 +89,7 @@ Model has been uploaded at HuggingFace Hub and also there are some instructions 
 [https://huggingface.co/Ketansomewhere/FER_2013_Conditional_Diffusion] -> FER 2013
 
 
-
-
-
-CLass Index for CIFAR10
+Class Index for CIFAR10
 
 airplane - index0 
 

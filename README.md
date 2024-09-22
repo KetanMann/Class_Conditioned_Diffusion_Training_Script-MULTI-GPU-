@@ -80,9 +80,7 @@ Now we can run script:-
   --logger="wandb"
 ```
 # Writing Custom Pipeline for Conditional Image generation:-
-I wrote my own conditional image DDPM pipeline. You can find it in *conditional_pipeline.py* file. This way you can generate your own class_index image. Here is an implementation of it using CIFAR10 dataset.
-For sampling look at *sampling.test*.
-
+I wrote my own conditional image DDPM pipeline. You can find it in *conditional_pipeline.py* file. This way you can generate your own class_index image. 
 # Pretrained Checkpoint
 To resume training from checkpoint or inference from pretrained checkpoint, you can download it from here: [https://drive.google.com/file/d/1JpGQQ9VwvPRF4daXMzBqrw9qzTPP6vN9/view?usp=sharing]
 Model has been uploaded at HuggingFace Hub and also there are some instructions for sampling: [https://huggingface.co/Ketansomewhere/cifar10_conditional_diffusion1] -> CIFAR10

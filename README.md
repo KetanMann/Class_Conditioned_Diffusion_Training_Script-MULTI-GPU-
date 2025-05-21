@@ -35,7 +35,7 @@ Firstly, there are some requirements:-
 ## Requirements
 ``` bash
 pip install tensorflow
-pip install -qq -U diffusers datasets transformers accelerate==0.21.0 ftfy pyarrow==9.0.0
+pip install -qq -U diffusers datasets==2.21.0 transformers accelerate==0.21.0 ftfy pyarrow==9.0.0
 ```
 and 
 ``` bash
